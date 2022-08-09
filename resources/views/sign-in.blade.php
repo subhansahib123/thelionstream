@@ -10,7 +10,7 @@
                 <label for="password">Password</label><br>
                 <input type="text" placeholder="Enter Password" name="password" id="password"><br>
                 <input type="submit" id="submit-btn" value="Sign In">
-                <a href="{{route('signup-store')}}" class="sign_in" style="color: var(--dark-grey);">Sign Up<i
+                <a href="/signup" class="sign_in" style="color: var(--dark-grey);">Sign Up<i
                         class="fa-solid fa-arrow-right-long" style="margin-left: 10px;"></i></a>
             </form>
         </div>

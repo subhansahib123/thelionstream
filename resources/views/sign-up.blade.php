@@ -24,7 +24,7 @@
                         <label for="select" style="font-weight: 300px;font-size: 14px;margin-top: 25px;">I agree to the
                             <a href="">Terms of Users</a> </label><br>
                         <input type="submit" id="submit-btn" value="Sign Up">
-                        <a href="{{route('login')}}" class="sign_in" style="color: var(--dark-grey);">Sign In<i
+                        <a href="/signin" class="sign_in" style="color: var(--dark-grey);">Sign In<i
                                 class="fa-solid fa-arrow-right-long" style="margin-left: 10px;"></i></a>
                     </form>
                 </div>

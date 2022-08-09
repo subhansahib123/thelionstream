@@ -40,7 +40,7 @@
                         <a class="nav-link" href="#">My Account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">joining Now</a>
+                        <a class="nav-link" href="/signup">joining Now</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>

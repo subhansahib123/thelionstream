@@ -21,3 +21,7 @@ Route::get('/signin',[AuthenticationController::class,'signin']);
 
 Route::post('/signup-store',[AuthenticationController::class,'signup_store'])->name('signup-store');
 Route::post('/login',[AuthenticationController::class,'login'])->name('login');;
+
+Route::get('/dashboard', function () {
+    return view('admin.home');
+});
