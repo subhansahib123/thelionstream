@@ -28,3 +28,4 @@
 </head>
 
 <body class="sidebar-dark sidebar-expand content-dark navbar-brand-dark right-sidebar-dark">
+    <div id="wrapper" class="wrapper">

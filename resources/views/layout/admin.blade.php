@@ -1,14 +1,16 @@
-@include('admin.include.head')
-<div id="wrapper" class="wrapper">
+@include('admin.include.head');
 @include('admin.include.header')
+    <div class="content-wrapper">
+        <!-- SIDEBAR -->
+   @include('admin.include.sidebar')
+        <!-- /.site-sidebar -->
+    @yield('content')
+        <!-- /.main-wrappper -->
+        <!-- RIGHT SIDEBAR -->
 
-<div class="content-wrapper">
-@include('admin.include.sidebar')
-
-@yield('content')
-
-
-</div>
-@include('admin.include.footer')
-</div>
-@include('admin.include.foot')
+        <!-- /.chat-panel -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- FOOTER -->
+    @include('Frontend.includes.footer')
+    @include('admin.include.foot')
