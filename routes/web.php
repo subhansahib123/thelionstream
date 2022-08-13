@@ -28,3 +28,4 @@ Route::get('/dashboard', function () {
 Route::get('/', function () {
     return view('admin.index');
 });
+
