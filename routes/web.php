@@ -16,10 +16,10 @@ use App\Http\Controllers\AuthenticationController;
 Route::get('/ecommerce', function () {
     return view('home');
 });
-Route::get('/signup',[AuthenticationController::class,'signup']);
+Route::get('/signup/{sponsur}',[AuthenticationController::class,'signup']);
 Route::get('/signin',[AuthenticationController::class,'signin']);
 
-Route::post('/signup-store',[AuthenticationController::class,'signup_store'])->name('signup-store');
+
 Route::post('/login',[AuthenticationController::class,'login'])->name('login');;
 
 Route::get('/dashboard', function () {
