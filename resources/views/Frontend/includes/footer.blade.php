@@ -1,5 +1,5 @@
 <footer>
-        <div class="row mx-2">
+        {{-- <div class="row mx-2">
             <div class="col-md-6 col-lg-5 ">
                 <h4>about</h4>
                 <p>Lions Streams is your one-stop shop. For all business needs.Development, Design &Business cards.
@@ -32,7 +32,7 @@
                     Email: <span>sample123@gmial.com</span>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="container">
             <div class="row ending">
                 <div class="col-md-12">

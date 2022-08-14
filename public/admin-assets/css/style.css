@@ -25999,3 +25999,16 @@ select.form-control:not([size]):not([multiple]) {
     height: calc(2.5rem + 2px);
     background-color: #1a232d;
 }
+.sidebar-expand .footer {
+    margin-left: 14.0625rem;
+}
+.footer {
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    padding: 20px 30px;
+    position: absolute;
+    right: 0;
+    background: #1976d2;
+    border-top: 1px solid rgba(153, 153, 153, 0.2);
+}

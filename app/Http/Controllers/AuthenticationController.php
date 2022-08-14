@@ -48,7 +48,7 @@ class AuthenticationController extends Controller
     }
     public function login(Request $request){
         $validator = Validator::make($request->all(), [
-            'email' => 'required|string|email',
+            'username' => 'required|string',
             'password' => 'required|string'
         ]);
         if ($validator->fails()) {
@@ -56,14 +56,12 @@ class AuthenticationController extends Controller
             $obj = ["Status" => false, "success" => 0, "errors" => $validator->errors()];
             return response()->back($obj);
         }
-        $credentials = request(['email', 'password']);
+        $credentials = request(['username', 'password']);
         if (!Auth::attempt($credentials))
-        dd('Credential not found');
-            // return response()->back([
-            //     'msg' => 'Invalid Email or Password',"Status" => false, "success" => 0,
-            // ]);
+            return redirect()->back()->withErrors(['msg' => 'Username or Password Did not Matched']);
 
-        return response()->json('logged in successfully');
+
+        return redirect()->route('dashboard');
 
 
     }

@@ -37,6 +37,7 @@ class CreateUsersTable extends Migration
             $table->integer('earning')->default(0);
             $table->integer('balance')->default(0);
             $table->integer('bonus')->default(0);
+            $table->integer('admin_user')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

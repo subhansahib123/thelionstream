@@ -30,9 +30,12 @@
                         <img src="admin-assets/images/Shinelogo.png" alt="Logo" width="160" height="140" style="" >
                     </a>
                 </div>
-
-                <!-- /.navbar-header -->
-                <form method="post" action="login.php">
+                @if($errors->any())
+                <h4 style="color:red">{{$errors->first()}}</h4>
+                @endif
+                                <!-- /.navbar-header -->
+                <form method="post" action="{{route('login')}}">
+                    @csrf
                     <div class="form-group">
                         <label for="example-email">User Name</label>
                         <input type="text" placeholder="Username" class="form-control form-control-line" name="username" id="username">

@@ -1,5 +1,88 @@
   <!-- SIDEBAR -->
+  @if (auth()->user()->admin_user)
   <aside class="site-sidebar scrollbar-enabled" data-suppress-scroll-x="true">
+    <!-- User Details -->
+    <div class="side-user d-none">
+        <div class="col-sm-12 text-center p-0 clearfix">
+            <div class="d-inline-block pos-relative mr-b-10">
+                <figure class="thumb-sm mr-b-0 user--online">
+                    <img src="admin-assets/img/users/dads.jpg" onerror="this.src='admin-assets/img/avatar.jpg'" class="rounded-circle" alt="">
+                </figure><a href="profile.php" class="text-muted side-user-link"><i class="feather feather-settings list-icon"></i></a>
+            </div>
+            <!-- /.d-inline-block -->
+            <div class="lh-14 mr-t-5"><a href="page-profile.html" class="hide-menu mt-3 mb-0 side-user-heading fw-500">test</a>
+            </div>
+        </div>
+        <!-- /.col-sm-12 -->
+    </div>
+    <nav class="sidebar-nav">
+        <ul class="nav in side-menu">
+            <li class="current-page"><a href="index.php"><i class="list-icon feather feather-command"></i> <span class="hide-menu">Dashboard</span></a></li>
+            <li class="menu-item-has-children"><a href="javascript:void(0);"><i class="list-icon fa fa-group"></i> <span class="hide-menu">Manage Users</span></a>
+                <ul class="list-unstyled sub-menu">
+                    <li class=""><a href="add_new_user.php">Add New</a>
+                    </li>
+                    <li class=""><a href="active_users.php">Active Users</a>
+                    </li>
+                    <li class=""><a href="in_active_users.php">Inactive Users</a>
+                    </li>
+                    <li class=""><a href="users.php">Manage Users</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""><a href="withdraw.php"><i class="list-icon fa fa-money"></i> <span class="hide-menu">Withdrawals</span></a></li>
+
+            <li class=""><a href="reports.php"><i class="list-icon feather feather-bar-chart-2"></i> <span class="hide-menu">Reports</span></a></li>
+            <li class=""><a href="lead.php"><i class="list-icon fa fa-exchange"></i> <span class="hide-menu">Lead</span></a></li>
+            <li class=""><a href="feed_backs.php"><i class="list-icon fa fa-send"></i> <span class="hide-menu">Feed Backs</span></a></li>
+            <li class="menu-item-has-children"><a href="javascript:void(0);"><i class="list-icon feather feather-mail"></i> <span class="hide-menu">Messages </span></a>
+                <ul class="list-unstyled sub-menu">
+                    <li class=""><a href="msg_new.php">Compose</a>
+                    </li>
+                    <li class=""><a href="msg_inbox.php">Inbox</a>
+                    </li>
+                </ul>
+            </li>
+             <li class="menu-item-has-children"><a href="javascript:void(0);"><i class="list-icon fa fa-send-o"></i> <span class="hide-menu">Broadcast</span></a>
+                <ul class="list-unstyled sub-menu">
+                    <li class=""><a href="broadcast.php">New Broadcast</a>
+                    <li class=""><a href="broadcasted.php">Broadcasted</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item-has-children   "><a href="javascript:void(0);"><i class="list-icon fa fa-send-o"></i> <span class="hide-menu">Rotating</span></a>
+                <ul class="list-unstyled sub-menu">
+                    <li class=""><a href="add_rotating.php">Add Links</a>
+
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item-has-children"><a href="javascript:void(0);"><i class="list-icon fa fa-send"></i> <span class="hide-menu">Auto Responders</span></a>
+                <ul class="list-unstyled sub-menu">
+                    <li class=""><a href="autoresponders.php">Auto Responder</a>
+                    <li class=""><a href="autoresponders_list.php">Auto Responder List</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""><a href="banner_adds.php"><i class="list-icon fa fa-link"></i> <span class="hide-menu">User Banner Adds</span></a></li>
+            <li class="menu-item-has-children "><a href="javascript:void(0);"><i class="list-icon fa fa-download"></i> <span class="hide-menu">Downloads</span></a>
+                <ul class="list-unstyled sub-menu">
+                    <li class=""><a href="download_new.php">Add New Download</a>
+                    <li class=""><a href="download_list.php">Downloads List</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""><a href="preferences.php"><i class="list-icon feather feather-edit"></i> <span class="hide-menu">Preferences</span></a></li>
+
+            <li class=""><a href="settings.php">
+                <i class="list-icon feather feather-settings"></i> <span class="hide-menu">Settings</span></a></li>
+        </ul>
+        <!-- /.side-menu -->
+    </nav>
+    <!-- /.sidebar-nav -->
+</aside>
+@else
+<aside class="site-sidebar scrollbar-enabled" data-suppress-scroll-x="true">
     <!-- User Details -->
     <div class="side-user d-none">
         <div class="col-sm-12 text-center p-0 clearfix">
@@ -235,3 +318,5 @@
     </nav>
     <!-- /.sidebar-nav -->
 </aside>
+  @endif
+
