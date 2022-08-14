@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator; 
+use Illuminate\Support\Facades\Validator;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Auth;
 
 
 class AuthenticationController extends Controller
 {
     public function signup(){
-        return view('sign-up');
+        return view('admin.register');
     }
     public function signin(){
-        return view('sign-in');
+        return view('admin.login');
     }
 
     public function signup_store(Request $request){

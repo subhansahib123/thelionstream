@@ -13,7 +13,7 @@ use App\Http\Controllers\AuthenticationController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/ecommerce', function () {
     return view('home');
 });
 Route::get('/signup',[AuthenticationController::class,'signup']);
@@ -23,5 +23,9 @@ Route::post('/signup-store',[AuthenticationController::class,'signup_store'])->n
 Route::post('/login',[AuthenticationController::class,'login'])->name('login');;
 
 Route::get('/dashboard', function () {
-    return view('admin.home');
+    return view('admin.dashboard');
 });
+Route::get('/', function () {
+    return view('admin.index');
+});
+
