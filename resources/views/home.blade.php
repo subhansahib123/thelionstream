@@ -391,20 +391,22 @@
     </div>
 </div>
 <div class="portion-50 portion-five ">
-    <div class="row">
-        <div class="col-lg-5 col-md-12 margin-top-0 margin-bottom-0">
-            <h2 style="font-size: 4.5rem;font-weight: 900;">The Heart of Creativity</h2>
-            <br>
-            <p style="font-size: 2rem;color: gray;">We are masters in design and branding. No matter what business
-                you are
-                in. Purchase your online & offline printed material from your
-                own site. We design all business cards to fit your needs.
-            </p>
-            <br>
-            <a href="#" class="btn btn-brown margin-bottom-40">Purchase Now</a>
-        </div>
-        <div class="col-lg-7 image-04">
-            <img src="assets/images/shanibhi.jpg" alt="">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-12 margin-top-0 margin-bottom-0">
+                <h2 style="font-size: 4.5rem;font-weight: 900;">The Heart of Creativity</h2>
+                <br>
+                <p style="font-size: 2rem;color: gray;">We are masters in design and branding. No matter what business
+                    you are
+                    in. Purchase your online & offline printed material from your
+                    own site. We design all business cards to fit your needs.
+                </p>
+                <br>
+                <a href="#" class="btn btn-brown margin-bottom-40">Purchase Now</a>
+            </div>
+            <div class="col-lg-7 image-04">
+                <img src="assets/images/shanibhi.jpg" alt="">
+            </div>
         </div>
     </div>
 </div>
