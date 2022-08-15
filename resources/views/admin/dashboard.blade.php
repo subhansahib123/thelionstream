@@ -2,6 +2,18 @@
 @section('content')
 
 
+<?php
+
+// $q = mysql_query("SELECT COUNT(*) as total_users ,SUM(balance) as total_earnings, (SELECT COUNT(*) from users where status2=0 ) as free_users , (SELECT COUNT(*) from users where status2 = 1 ) as p_users, (SELECT SUM(amount) from withdraw ) as withdraw,(SELECT SUM(ledger.out) FROM `ledger` WHERE detail LIKE '%Admin Fee%') as admin_e from users") or die(mysql_error());
+
+// $query = mysql_fetch_assoc($q);
+
+
+$query=DB::select("SELECT COUNT(*) as total_users ,SUM(balance) as total_earnings, (SELECT COUNT(*) from users where status2=0 ) as free_users , (SELECT COUNT(*) from users where status2 = 1 ) as p_users, (SELECT SUM(amount) from withdraw ) as withdraw,(SELECT SUM(ledger.out) FROM `ledger` WHERE detail LIKE '%Admin Fee%') as admin_e from users");
+$query=json_decode(json_encode($query), true);
+$query=$query[0];
+
+ ?>
         <!-- /.site-sidebar -->
         <main class="main-wrapper clearfix">
             <!-- Page Title Area -->
@@ -30,7 +42,7 @@
                         <div class="widget-body">
                             <div class="counter-w-info media">
                                 <div class="media-body">
-                                    <p class="text-muted mr-b-5">Total Users</p><span class="counter-title color-primary"><span class="counter"></span> </span>
+                                    <p class="text-muted mr-b-5">Total Users</p><span class="counter-title color-primary"><span class="counter"><?php echo $query['total_users'] ?></span> </span>
                                     <!-- /.counter-title --> <!-- <span class="counter-difference text-success"><i class="feather feather-arrow-up"></i> 23%</span> -->
                                     <div class="mr-t-20"><span data-toggle="sparklines" data-height="15" data-width="70" data-line-color="#1976d2" data-line-width="3" data-spot-radius="1" data-fill-color="rgba(0,0,0,0)" data-spot-color="undefined" data-min-spot-color="undefined"
                                         data-max-spot-color="undefined" data-highlight-line-color="undefined"><!-- 10,5,7,8,3,0,4,12,10,8,12 --></span>
@@ -52,7 +64,7 @@
                         <div class="widget-body">
                             <div class="counter-w-info media">
                                 <div class="media-body">
-                                    <p class="text-muted mr-b-5">Inactive Users</p><span class="counter-title color-info"><span class="counter"></span></span>
+                                    <p class="text-muted mr-b-5">Inactive Users</p><span class="counter-title color-info"><span class="counter"><?php echo $query['free_users'] ?></span></span>
                                     <!-- /.counter-title --> <!-- <span class="counter-difference text-danger"><i class="feather feather-arrow-down"></i> 8%</span> -->
                                     <div class="progress" style="width: 70%; position: relative; top: 25px">
                                         <div class="progress-bar bg-info" style="width: 100%" role="progressbar"><span class="sr-only">1% Complete</span>
@@ -75,7 +87,7 @@
                         <div class="widget-body">
                             <div class="counter-w-info media">
                                 <div class="media-body">
-                                    <p class="text-muted mr-b-5">Active Users</p><span class="counter-title"><span class="counter"></span> </span>
+                                    <p class="text-muted mr-b-5">Active Users</p><span class="counter-title"><span class="counter"><?php echo $query['p_users'] ?></span> </span>
                                     <!-- /.counter-title -->
                                     <div class="progress" style="width: 70%; position: relative; top: 25px">
                                         <div class="progress-bar bg-success" style="width: 100%" role="progressbar"><span class="sr-only">100% Complete</span>
@@ -97,7 +109,7 @@
                         <div class="widget-body">
                             <div class="counter-w-info media">
                                 <div class="media-body">
-                                    <p class="text-muted mr-b-5">Total Earnings</p><span class="counter-title color-pink">&dollar;<span class="counter"></span> </span>
+                                    <p class="text-muted mr-b-5">Total Earnings</p><span class="counter-title color-pink">&dollar;<span class="counter"><?php echo ($query['p_users'] * 11) ?></span> </span>
                                     <!-- /.counter-title -->
                                     <div style="margin-top: 15px"><span data-toggle="sparklines" data-height="15" data-bar-width="3" data-type="bar" data-chart-range-min="0" data-bar-spacing="3" data-bar-color="#ff6b88"><!-- 2,4,5,3,2,3,5,3,2,3,5,4,2 --></span>
                                     </div>
@@ -140,7 +152,21 @@
                     <!-- /.widget-bg -->
                 </div>
                 <!-- /.widget-holder -->
+                <?php
+                $currDateTime = date('Y-m-d H:i:s');
+    $currYear = date('Y', strtotime($currDateTime));
+    $currMonth = date('m', strtotime($currDateTime));
+    $query =DB::select("SELECT count(*) as yusers from users where status2=1 and YEAR(joining_date)='{$currYear}' ");
+    $query=json_decode(json_encode($query), true);
+    $query=$query[0];
+    if($query && count($query)>0)
+    {
+        // $result = mysql_fetch_assoc($query);
+        $yusers = $query['yusers'];
+    }
 
+
+                ?>
                 <div class="widget-holder widget-full-content widget-full-height col-lg-6">
                     <div class="widget-bg">
                         <div class="widget-heading">
@@ -152,7 +178,29 @@
                             var months_data=[];
                             var colos=[];
                         </script>
+                            <?php
+     $m_users_c=array(1=>"#800000",2=>"#FFFF00",3=>"#00FF00",4=>"#00FFFF",5=>"#008080",6=>"#FF00FF",7=>"#808080",8=>"#800080",9=>"#0000FF",10=>"#008000",11=>"#808000",12=>"#FF0000");
+    for ($i=1; $i <= 12; $i++) {
+        $query = DB::select("SELECT count(id) as m_users from users  where  status2=1 and YEAR(joining_date)='{$currYear}' and MONTH(joining_date)='{$i}' ");
+        $query=json_decode(json_encode($query), true);
+    $query=$query[0];
+    if($query && count($query)>0)
+    {
+        $m_users = $query['m_users'];
 
+    }
+
+    ?>
+ <script type="text/javascript">
+    months[<?php echo $i-1 ; ?>]="<?php echo DateTime::createFromFormat('!m', $i)->format('F'); ?>";
+    months_data[<?php echo $i-1 ; ?>]=<?php echo $m_users; ?>;
+    colos[<?php echo $i-1 ; ?>]="<?php echo $m_users_c[$i]; ?>";
+ </script>
+   <?php }
+
+
+
+                            ?>
 
 
                             <div class="container-fluid pd-20">
@@ -167,7 +215,7 @@
                                     </div>
                                     <!-- /.col-lg-6 -->
                                     <div class="col-sm-6">
-                                        <h5 class="h2 fw-semibold mt-0">$</h5>
+                                        <h5 class="h2 fw-semibold mt-0">$<?php echo number_format(($yusers*11),2); ?></h5>
                                         <div class="progress w-50 mb-3">
                                             <div class="progress-bar bg-info" style="background: linear-gradient(to right, #17bff0, #8be0f9); width: 58.3%" role="progressbar"><span class="sr-only">60% Complete</span>
                                             </div>
@@ -177,31 +225,31 @@
                                             <br></p>
                                         <div class="row">
                                             <div class="col-6">
-                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color: "></i></p>
-                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color:"></i> </p>
+                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color: <?php echo $m_users_c[1]; ?>"></i><?php  echo DateTime::createFromFormat('!m', 1)->format('F');?></p>
+                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color: <?php echo $m_users_c[2]; ?>"></i> <?php  echo DateTime::createFromFormat('!m', 2)->format('F');?></p>
                                             </div>
                                             <!-- /.col-6 -->
                                             <div class="col-6">
-                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color:"></i></p>
-                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color:"></i> </p>
+                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color:<?php echo $m_users_c[3]; ?>"></i> <?php  echo DateTime::createFromFormat('!m', 3)->format('F');?></p>
+                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color: <?php echo $m_users_c[4]; ?>"></i> <?php  echo DateTime::createFromFormat('!m', 4)->format('F');?></p>
                                             </div>
                                             <div class="col-6">
-                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color: "></i></p>
-                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color:"></i></p>
-                                            </div>
-                                            <!-- /.col-6 -->
-                                            <div class="col-6">
-                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color: "></i></p>
-                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color: "></i> </p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color: "></i></p>
-                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color: "></i> </p>
+                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color: <?php echo $m_users_c[5]; ?>"></i><?php  echo DateTime::createFromFormat('!m', 5)->format('F');?></p>
+                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color:<?php echo $m_users_c[6]; ?>"></i> <?php  echo DateTime::createFromFormat('!m', 6)->format('F');?></p>
                                             </div>
                                             <!-- /.col-6 -->
                                             <div class="col-6">
-                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color:"></i></p>
-                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color:"></i> </p>
+                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color: <?php echo $m_users_c[7]; ?>"></i> <?php  echo DateTime::createFromFormat('!m', 7)->format('F');?></p>
+                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color: <?php echo $m_users_c[8]; ?>"></i> <?php  echo DateTime::createFromFormat('!m', 8)->format('F');?></p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color: <?php echo $m_users_c[9]; ?>"></i><?php  echo DateTime::createFromFormat('!m', 9)->format('F');?></p>
+                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color: <?php echo $m_users_c[10]; ?>"></i> <?php  echo DateTime::createFromFormat('!m', 10)->format('F');?></p>
+                                            </div>
+                                            <!-- /.col-6 -->
+                                            <div class="col-6">
+                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color: <?php echo $m_users_c[11]; ?>"></i> <?php  echo DateTime::createFromFormat('!m', 11)->format('F');?></p>
+                                                <p class="heading-font-family fs-13 mb-3"><i class="fa fa-square mr-2 mr-0-rtl ml-2-rtl" style="color: <?php echo $m_users_c[12]; ?>"></i> <?php  echo DateTime::createFromFormat('!m', 12)->format('F');?></p>
                                             </div>
 
 
@@ -256,7 +304,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                    $q = DB::select("select * from users order by id desc limit 12");
+                                    $query=json_decode(json_encode($q), true);
 
+              for($i=0;count($query)<=$i;$i++) {
+                  ?>
+                  <tr>
+                  <td><?php echo $query[$i]['id'] ?></td>
+                  <td><?php echo $query[$i]['login_id'] ?></td>
+                  <td><?php echo $query[$i]['name'] ?></td>
+                  <td><?php echo $query[$i]['email'] ?></td>
+                  <td><?php echo $query[$i]['phone'] ?></td>
+                  <td><?php echo number_format($query['earning'],2) ?></td></tr>
+                  <?php
+                  } ;
+
+              ?>
                                 </tbody>
                             </table>
                         </div>
@@ -281,7 +345,19 @@
                                     </tr>
                                 </thead>
                                 <tbody style="overflow: visible;">
+                                    <?php
+                                    $q = DB::select("SELECT * from users where status2=1 order by id desc limit 12");
+                                    $query=json_decode(json_encode($q), true);
 
+for($i=0;count($query)<=$i;$i++) {
+                  ?>
+                  <tr>
+                  <td><?php echo $query[$i]['login_id'] ?></td>
+                  <td>$11</td>
+                  </tr>
+                  <?php
+                  } ;
+              ?>
                                 </tbody>
                             </table>
                         </div>
@@ -297,10 +373,20 @@
             <script type="text/javascript">
                 var userData=[];
             </script>
+            <?php for ($i=6,$j=0; $i >= 0 ; $i--,$j++) {
+        $date=date("Y-m-d", strtotime("$i days ago"));
+        $query=DB::select("SELECT COUNT(*) as duser from users where DATE(joining_date) = '{$date}' ");
+        $query=json_decode(json_encode($query), true);
 
+        $users = $query[0]['duser'];
+    
+        // echo $users."-".$date."<br>";
+         ?>
+        <script type="text/javascript">
+                userData[<?php echo $j; ?>]=<?php echo $users; ?>;
+        </script>
+   <?php }; ?>
         </main>
-
-
 
     <script type="text/javascript">
         newUserChartJs();
@@ -442,6 +528,5 @@
         );
     }
     </script>
-
 
 @endsection
