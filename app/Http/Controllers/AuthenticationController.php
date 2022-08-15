@@ -32,9 +32,10 @@ class AuthenticationController extends Controller
             'password' => bcrypt($request->password),
             'username'=>$request->username,
             'phone'=>$request->phone,
-            'address'=>$request->address,
+            'city'=>$request->address,
             'country'=>$request->country,
-            'parent_id'=>$request->sponsor
+            'parent'=>$request->sponsor,
+            'sponsor'=>$request->sponsor
         ]);
         if($user->save()){
             $msg=['result'=>1,'message'=>"Successfully Registered Account !"];
