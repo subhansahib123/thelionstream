@@ -2,8 +2,8 @@
     <!-- Logo Area -->
     <div class="navbar-header">
         <a href="index.php" class="navbar-brand">
-            <img class="logo-expand" alt="" src="admin-assets/img/logo-dark.png">
-            <img class="logo-collapse" alt="" src="admin-assets/img/logo-collapse.png">
+            <img class="logo-expand" alt="" src="{{asset('admin-assets/img/logo-dark.png')}}">
+            <img class="logo-collapse" alt="" src="{{asset('admin-assets/img/logo-collapse.png')}}">
             <!-- <p>BonVue</p> -->
         </a>
     </div>
@@ -13,7 +13,12 @@
     </ul>
     <div class="spacer"></div>
     <ul class="nav navbar-nav">
-        <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle dropdown-toggle-user ripple" data-toggle="dropdown"><span class="avatar thumb-xs2"><img src="admin-assets/img/users/sdsad.jpg" class="rounded-circle" onerror="this.src='admin-assets/img/avatar.jpg'" alt=""> <i class="feather feather-chevron-down list-icon"></i></span></a>
+        <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle dropdown-toggle-user ripple" data-toggle="dropdown"><span class="avatar thumb-xs2">
+            <img src="{{asset('admin-assets/img/avatar.jpg')}}" class="rounded-circle" alt="">
+
+
+
+            <i class="feather feather-chevron-down list-icon"></i></span></a>
             <div
             class="dropdown-menu dropdown-left dropdown-card dropdown-card-dark dropdown-card-profile animated flipInY">
                 <div class="card">

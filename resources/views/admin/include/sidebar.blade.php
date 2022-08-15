@@ -6,7 +6,7 @@
         <div class="col-sm-12 text-center p-0 clearfix">
             <div class="d-inline-block pos-relative mr-b-10">
                 <figure class="thumb-sm mr-b-0 user--online">
-                    <img src="admin-assets/img/users/dads.jpg" onerror="this.src='admin-assets/img/avatar.jpg'" class="rounded-circle" alt="">
+                    <img src="{{asset('admin-assets/img/users/avatar.jpg')}}" class="rounded-circle" alt="">
                 </figure><a href="profile.php" class="text-muted side-user-link"><i class="feather feather-settings list-icon"></i></a>
             </div>
             <!-- /.d-inline-block -->
@@ -20,9 +20,9 @@
             <li class="current-page"><a href="index.php"><i class="list-icon feather feather-command"></i> <span class="hide-menu">Dashboard</span></a></li>
             <li class="menu-item-has-children"><a href="javascript:void(0);"><i class="list-icon fa fa-group"></i> <span class="hide-menu">Manage Users</span></a>
                 <ul class="list-unstyled sub-menu">
-                    <li class=""><a href="add_new_user.php">Add New</a>
+                    <li class=""><a href="{{route('admin.add_user')}}">Add New</a>
                     </li>
-                    <li class=""><a href="active_users.php">Active Users</a>
+                    <li class=""><a href="{{route('admin.active_users')}}">Active Users</a>
                     </li>
                     <li class=""><a href="in_active_users.php">Inactive Users</a>
                     </li>

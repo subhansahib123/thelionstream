@@ -308,7 +308,7 @@ $query=$query[0];
                                     $q = DB::select("select * from users order by id desc limit 12");
                                     $query=json_decode(json_encode($q), true);
 
-              for($i=0;count($query)<=$i;$i++) {
+              for($i=0;count($query)>$i;$i++) {
                   ?>
                   <tr>
                   <td><?php echo $query[$i]['id'] ?></td>
@@ -316,7 +316,7 @@ $query=$query[0];
                   <td><?php echo $query[$i]['name'] ?></td>
                   <td><?php echo $query[$i]['email'] ?></td>
                   <td><?php echo $query[$i]['phone'] ?></td>
-                  <td><?php echo number_format($query['earning'],2) ?></td></tr>
+                  <td><?php echo number_format($query[$i]['earning'],2) ?></td></tr>
                   <?php
                   } ;
 
@@ -349,7 +349,7 @@ $query=$query[0];
                                     $q = DB::select("SELECT * from users where status2=1 order by id desc limit 12");
                                     $query=json_decode(json_encode($q), true);
 
-for($i=0;count($query)<=$i;$i++) {
+for($i=0;count($query)>$i;$i++) {
                   ?>
                   <tr>
                   <td><?php echo $query[$i]['login_id'] ?></td>
@@ -379,7 +379,7 @@ for($i=0;count($query)<=$i;$i++) {
         $query=json_decode(json_encode($query), true);
 
         $users = $query[0]['duser'];
-    
+
         // echo $users."-".$date."<br>";
          ?>
         <script type="text/javascript">
