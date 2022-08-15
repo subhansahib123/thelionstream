@@ -136,10 +136,10 @@ s0.parentNode.insertBefore(s1,s0);
                 <a class="page-scroll hvr-underline-from-center" href="#services">Services</a>
             </li>
             <li>
-                <a class="page-scroll hvr-underline-from-center" href="dashboard/">My Account</a>
+                <a class="page-scroll hvr-underline-from-center" href="/signin">My Account</a>
             </li>
             <li>
-                <a class="page-scroll hvr-underline-from-center" href="dashboard/register.php">Join Now</a>
+                <a class="page-scroll hvr-underline-from-center" href="/signup/admin">Join Now</a>
             </li>
             <li>
                 <a class="page-scroll hvr-underline-from-center" target="_blank" href="rotating.php">Rotate Pages</a>

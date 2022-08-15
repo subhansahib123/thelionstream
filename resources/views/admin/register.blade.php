@@ -154,7 +154,7 @@
   </div>
             <footer class="col-sm-12 text-center">
                     <!-- <hr> -->
-                    <p>Already Have An Account?<a href="login.php" class="text-primary m-l-5">&nbsp;<b>Click Here</b></a>
+                    <p>Already Have An Account?<a href="/signin" class="text-primary m-l-5">&nbsp;<b>Click Here</b></a>
                     </p>
             </footer>
 

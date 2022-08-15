@@ -52,7 +52,7 @@
                 <!-- /.form-material -->
                 <!-- /.btn-list -->
                 <footer class="col-sm-12 text-center">
-                    <p><a href="#" class="text-primary m-l-5">Forget Your Password?</a >&nbsp;<strong>|</strong>&nbsp;<a href="register.php" class="text-primary m-l-5">Dont Have An Account?</a></p>
+                    <p><a href="#" class="text-primary m-l-5">Forget Your Password?</a >&nbsp;<strong>|</strong>&nbsp;<a href="/signup/admin" class="text-primary m-l-5">Dont Have An Account?</a></p>
                     <hr>
                     <p><a href="/" class="text-primary m-l-5">Back To Home</a></p>
                 </footer>
