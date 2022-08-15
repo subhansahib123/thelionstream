@@ -23,11 +23,11 @@ class User extends Authenticatable
     public $timestamps=false;
     /**
      * The attributes that should be hidden for arrays.
-     *
+     *'remember_token'
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password'
     ];
 
     /**
@@ -36,6 +36,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'timestamp' => 'datetime',
     ];
 }
