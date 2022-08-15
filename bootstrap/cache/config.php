@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:vt0isrB3KrylV7DkXkGK+iVOLPHt+kpC4UIprlCPR8M=',
+    'key' => 'base64:KIjSBxuMv9Z92ccgQsbyRbAC+IwAvwJegeYRCyxBw4g=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -177,7 +177,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\thelionstream\\storage\\framework/cache/data',
+        'path' => 'E:\\xampp\\htdocs\\thelionstream\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -343,12 +343,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\thelionstream\\storage\\app',
+        'root' => 'E:\\xampp\\htdocs\\thelionstream\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\thelionstream\\storage\\app/public',
+        'root' => 'E:\\xampp\\htdocs\\thelionstream\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -365,7 +365,7 @@
     ),
     'links' => 
     array (
-      'C:\\xampp\\htdocs\\thelionstream\\public\\storage' => 'C:\\xampp\\htdocs\\thelionstream\\storage\\app/public',
+      'E:\\xampp\\htdocs\\thelionstream\\public\\storage' => 'E:\\xampp\\htdocs\\thelionstream\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -399,13 +399,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\thelionstream\\storage\\logs/laravel.log',
+        'path' => 'E:\\xampp\\htdocs\\thelionstream\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\thelionstream\\storage\\logs/laravel.log',
+        'path' => 'E:\\xampp\\htdocs\\thelionstream\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -455,7 +455,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\xampp\\htdocs\\thelionstream\\storage\\logs/laravel.log',
+        'path' => 'E:\\xampp\\htdocs\\thelionstream\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -512,7 +512,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\thelionstream\\resources\\views/vendor/mail',
+        0 => 'E:\\xampp\\htdocs\\thelionstream\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -591,7 +591,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\thelionstream\\storage\\framework/sessions',
+    'files' => 'E:\\xampp\\htdocs\\thelionstream\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -611,9 +611,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\thelionstream\\resources\\views',
+      0 => 'E:\\xampp\\htdocs\\thelionstream\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\thelionstream\\storage\\framework\\views',
+    'compiled' => 'E:\\xampp\\htdocs\\thelionstream\\storage\\framework\\views',
   ),
   'flare' => 
   array (
